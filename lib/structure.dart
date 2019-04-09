@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/BaseWidget.dart';
 import 'package:flutter_app/BottomNavigationBarDemo.dart';
 import 'package:flutter_app/DrawerDemo.dart';
 import 'package:flutter_app/listView.dart';
@@ -67,7 +68,7 @@ class TabController extends StatelessWidget {
         ),
         body: TabBarView(children: <Widget>[
           ListViewDemo(),
-          Icon(Icons.bookmark_border, size: 128.0, color: Colors.black),
+          BaseWidgetMain(),
           Icon(Icons.directions_bike, size: 128.0, color: Colors.blue)
         ]),
         drawer: RealDrawer(),
