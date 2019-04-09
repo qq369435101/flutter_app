@@ -1,11 +1,9 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-
-import 'practice.dart';
+import 'package:flutter_app/structure.dart';
 
 void main() {
-  runApp(
-      new Practice(items: new List<String>.generate(1000, (i) => "Item $i")));
+  runApp(new StructureApp());
 }
 
 class MyApp extends StatelessWidget {
