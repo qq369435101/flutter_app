@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/BaseWidget.dart';
 import 'package:flutter_app/BottomNavigationBarDemo.dart';
+import 'package:flutter_app/ContainerWidget.dart';
 import 'package:flutter_app/DrawerDemo.dart';
 import 'package:flutter_app/listView.dart';
 
@@ -66,11 +67,8 @@ class TabController extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(children: <Widget>[
-          ListViewDemo(),
-          BaseWidgetMain(),
-          Icon(Icons.directions_bike, size: 128.0, color: Colors.blue)
-        ]),
+        body: TabBarView(
+            children: <Widget>[ListViewDemo(), BaseWidgetMain(), LayoutDemo()]),
         drawer: RealDrawer(),
         endDrawer: SampleDrawer(),
         bottomNavigationBar: BottomNavigationBarDemo(),
