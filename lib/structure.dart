@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/BaseWidget.dart';
 import 'package:flutter_app/BottomNavigationBarDemo.dart';
-import 'package:flutter_app/ContainerWidget.dart';
 import 'package:flutter_app/DrawerDemo.dart';
+import 'package:flutter_app/ViewDemo.dart';
 import 'package:flutter_app/listView.dart';
 
 class StructureApp extends StatelessWidget {
@@ -44,7 +44,7 @@ class TabController extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: Text('StructureApp'),
@@ -63,12 +63,14 @@ class TabController extends StatelessWidget {
             tabs: <Widget>[
               Tab(icon: Icon(Icons.add)),
               Tab(icon: Icon(Icons.subway)),
-              Tab(icon: Icon(Icons.directions_bus))
+              Tab(icon: Icon(Icons.directions_bus)),
+              Tab(icon: Icon(Icons.pool))
             ],
           ),
         ),
         body: TabBarView(
-            children: <Widget>[ListViewDemo(), BaseWidgetMain(), LayoutDemo()]),
+            children: <Widget>[
+              ListViewDemo(), BaseWidgetMain(), GridViewDemo(), ViewWidget()]),
         drawer: RealDrawer(),
         endDrawer: SampleDrawer(),
         bottomNavigationBar: BottomNavigationBarDemo(),
