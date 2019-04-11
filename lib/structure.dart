@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/BaseWidget.dart';
 import 'package:flutter_app/BottomNavigationBarDemo.dart';
 import 'package:flutter_app/DrawerDemo.dart';
 import 'package:flutter_app/ViewDemo.dart';
 import 'package:flutter_app/listView.dart';
+import 'package:flutter_app/sliver_demo.dart';
 
 class StructureApp extends StatelessWidget {
   @override
@@ -70,7 +70,7 @@ class TabController extends StatelessWidget {
         ),
         body: TabBarView(
             children: <Widget>[
-              ListViewDemo(), BaseWidgetMain(), GridViewDemo(), ViewWidget()]),
+              ListViewDemo(), SliverDemo(), GridViewDemo(), ViewWidget()]),
         drawer: RealDrawer(),
         endDrawer: SampleDrawer(),
         bottomNavigationBar: BottomNavigationBarDemo(),
