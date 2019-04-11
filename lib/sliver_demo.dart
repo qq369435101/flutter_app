@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/ViewDemo.dart';
 import 'package:flutter_app/listView.dart';
@@ -10,7 +12,9 @@ class SliverDemo extends StatelessWidget {
         slivers: <Widget>[
           SliverAppBar(
 //            title: Text('hello'),
-            floating: true,
+            //是否到顶部才展开
+            floating: false,
+            pinned: true,
             expandedHeight: 178,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
@@ -27,6 +31,21 @@ class SliverDemo extends StatelessWidget {
               ),
             ),
           ),
+          //sliver头部可悬浮
+          SliverPersistentHeader(
+            pinned: true,
+            floating: false,
+            delegate: _SliverAppBarDelegate(
+                minHeight: 60.0,
+                maxHeight: 180.0,
+                child: Container(
+                  child: Image.network(
+                    "https://i0.hdslb.com/bfs/space/cb1c3ef50e22b6096fde67febe863494caefebad.png",
+                    fit: BoxFit.cover,
+                  ),
+                )),
+          ),
+
           //适配刘海屏（忽略）
           SliverSafeArea(
             //设置内边距
@@ -86,5 +105,36 @@ class SliverListDemo extends StatelessWidget {
     return SliverList(
       delegate: SliverChildBuilderDelegate(builder, childCount: posts.length),
     );
+  }
+}
+
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  _SliverAppBarDelegate({
+    @required this.minHeight,
+    @required this.maxHeight,
+    @required this.child,
+  });
+
+  final double minHeight;
+  final double maxHeight;
+  final Widget child;
+
+  @override
+  double get minExtent => minHeight;
+
+  @override
+  double get maxExtent => math.max(maxHeight, minHeight);
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset,
+      bool overlapsContent) {
+    return new SizedBox.expand(child: child);
+  }
+
+  @override
+  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
+    return maxHeight != oldDelegate.maxHeight ||
+        minHeight != oldDelegate.minHeight ||
+        child != oldDelegate.child;
   }
 }
