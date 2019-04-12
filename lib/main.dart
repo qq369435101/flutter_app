@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/structure.dart';
 
 void main() {
-  runApp(new StructureApp());
+  runApp(StructureApp());
 }
 
 class MyApp extends StatelessWidget {

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/BottomNavigationBarDemo.dart';
 import 'package:flutter_app/DrawerDemo.dart';
 import 'package:flutter_app/ViewDemo.dart';
+import 'package:flutter_app/form_demo.dart';
 import 'package:flutter_app/listView.dart';
+import 'package:flutter_app/router_demo.dart';
 import 'package:flutter_app/sliver_demo.dart';
 
 class StructureApp extends StatelessWidget {
@@ -11,8 +13,17 @@ class StructureApp extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TabController(),
+//      home: TabController(),
       theme: ThemeData(primarySwatch: Colors.pink),
+      routes: {
+        '/': (context) => TabController(),
+        '/about': (context) =>
+            Page(
+              title: 'about',
+            ),
+        '/form': (context) => FormDemo(),
+      },
+      initialRoute: '/form',
     );
   }
 }
@@ -68,9 +79,12 @@ class TabController extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
-            children: <Widget>[
-              ListViewDemo(), SliverDemo(), GridViewDemo(), ViewWidget()]),
+        body: TabBarView(children: <Widget>[
+          ListViewDemo(),
+          SliverDemo(),
+          GridViewDemo(),
+          ViewWidget()
+        ]),
         drawer: RealDrawer(),
         endDrawer: SampleDrawer(),
         bottomNavigationBar: BottomNavigationBarDemo(),
